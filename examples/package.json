@@ -1,0 +1,21 @@
+{
+  "name": "lexactivator-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sample.js",
+  "scripts": {
+    "start": "node sample"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptlex/lexactivator-nodejs.git"
+  },
+  "author": "Cryptlex",
+  "bugs": {
+    "url": "https://github.com/cryptlex/lexactivator-nodejs/issues"
+  },
+  "homepage": "https://github.com/cryptlex/lexactivator-nodejs#readme",
+  "dependencies": {
+    "ffi": "^2.2.0"
+  }
+}
