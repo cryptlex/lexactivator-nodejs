@@ -1,18 +1,20 @@
 const ref = require('ref');
+
+// Refer to following link for LexActivator API docs:
+// https://github.com/cryptlex/lexactivator-c/blob/master/examples/LexActivator.h
+
 const { LexActivator, PermissionFlags, LexStatusCodes, LicenseCallback } = require('./LexActivator');
 
 function init() {
     let status;
     // status = LexActivator.SetProductFile("ABSOLUTE_PATH_OF_PRODUCT.DAT_FILE");
     status = LexActivator.SetProductData("PASTE_CONTENT_OF_PRODUCT.DAT_FILE");
-    status = LexActivator.SetProductData("QjlCODg5NzUyREY2MUIwN0REN0I4RDZFNTM3RjRFNkE=.mT33uFEGj9lJcS3m+wh0mszNxPWUKS5DrDr82T58OW9+cvIHJDT7Eqz72mtJg4Acp7ieKwLHkFxLm3fgnA661lajQHCkpFJGlN01XROsXvDSr7aUyr28Hd1L+/5QbrH+9Ib2KJUi+JHjBNkb3a+Vc+Z7iB13B248asU2z2NZTFuBw/XA6ogprPM+ewVqQvrNT1Ha4YLyweWTjEKwEdj6QTA1LmsMGWZw65KxIP97EnYG8az3QgpFWNGh+Mquvfzo9QpKMdEWnDWz0Utim9DX41nWQoj9+Tq0nyPLukqJQTR5xEBnK35lUMkOnmvDp/hpc2GLdZ4biuLnnuSjHsbkuJDLdQ3rTJJnNzAWkDwNnBgg/vs/f7bDITYjZQv9ODxiIuiTaf1LK83c1bCRWQyErlezbYkzk6ejTnZNH8cLcmtxAiS2oH+M7E4L5uvCR3R0giTFuKzhTY6eFgjEe3dA38Mw0YJOJ4f+s341sY3umrHUDERwmEuh9TZhK96xQTU+nqmXM+jqPnakISq2q66T8RdMdF6/O5ldDNmpHPeFX/audyQrIxhFNeaTI7VfAtWqI0dVp0iS7PkM+PvE8fWSC2Ujj6PU7cQCyYOlv+NvvmNUIsU96aEbbi0B3uHYEY5Wftuzp7YcGw8NzlDfp54+t8rmtRwgOpfYxobVWfTb94rlwF8NOCzKhDVhw46e1WZQ3HLjx6UmNbg6GfXL2JvMPcZhb+n6SF+jvKev6aNV8H4=");
     if (LexStatusCodes.LA_OK != status) {
         console.log("Error Code:", status);
         process.exit(status);
     }
 
     status = LexActivator.SetProductId("PASTE_PRODUCT_ID", PermissionFlags.LA_USER);
-    status = LexActivator.SetProductId("be4a98fb-563b-4c09-9f6f-c809d6bd45b9", LexStatusCodes.LA_USER);
     if (LexStatusCodes.LA_OK != status) {
         console.log("Error Code:", status);
         process.exit(status);
@@ -28,7 +30,6 @@ function init() {
 function activate() {
     let status;
     status = LexActivator.SetLicenseKey("PASTE_LICENCE_KEY");
-    status = LexActivator.SetLicenseKey("1334F1-E2FE7-3A50D-80F4C-61EC5");
     if (LexStatusCodes.LA_OK != status) {
         console.log("Error Code:", status);
         process.exit(status);
