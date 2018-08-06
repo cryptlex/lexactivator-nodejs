@@ -232,8 +232,8 @@ const LexStatusCodes = {
   /*
       CODE: LA_E_TIME
  
-      MESSAGE: The system time has been tampered with. Ensure your date
-      and time settings are correct.
+      MESSAGE: The difference between the network time and the system time is
+      more than allowed clock offset.
   */
   LA_E_TIME: 47,
 
@@ -330,11 +330,11 @@ const LexStatusCodes = {
   LA_E_DEACTIVATION_LIMIT: 60,
 
   /*
-      CODE: LA_E_TRAIL_NOT_ALLOWED
+      CODE: LA_E_TRIAL_NOT_ALLOWED
  
       MESSAGE: Trial not allowed for the product.
   */
-  LA_E_TRAIL_NOT_ALLOWED: 61,
+  LA_E_TRIAL_NOT_ALLOWED: 61,
 
   /*
       CODE: LA_E_TRIAL_ACTIVATION_LIMIT
@@ -384,6 +384,13 @@ const LexStatusCodes = {
       MESSAGE: The metadata key does not exist.
   */
   LA_E_METADATA_KEY_NOT_FOUND: 68,
+  
+  /*
+      CODE: LA_E_TIME_MODIFIED
+ 
+      MESSAGE: The system time has been tampered (backdated).
+  */
+  LA_E_TIME_MODIFIED: 69,
 
   /*
       CODE: LA_E_VM
