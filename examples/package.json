@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/cryptlex/lexactivator-nodejs#readme",
   "dependencies": {
-    "ffi": "^2.2.0"
+    "ffi": "^2.2.0",
+    "ref-wchar": "^1.0.2"
   }
 }

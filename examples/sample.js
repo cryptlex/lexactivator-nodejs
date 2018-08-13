@@ -83,7 +83,11 @@ function main() {
         const buffer = new Buffer(256);
         buffer.type = ref.types.char;
         LexActivator.GetLicenseUserName(buffer, buffer.length);
-        console.log("License user name: %s\n", buffer.toString());
+        if (process.platform == 'win32') {
+            console.log("License user name: %s\n", buffer.toString('utf16le'));
+        } else {
+            console.log("License user name: %s\n", buffer.toString());
+        }
 
         console.log("License is genuinely activated!");
     } else if (LexStatusCodes.LA_EXPIRED == status) {
