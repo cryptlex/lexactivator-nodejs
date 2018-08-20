@@ -2,7 +2,7 @@ const FFI = require('ffi');
 const ref = require('ref');
 const refWchar = require('ref-wchar');
 
-const libraryPath = process.platform == 'win32' ? './libs/LexActivator' : './libs/libLexActivator';
+const libraryPath = process.platform == 'win32' ? './LexActivator' : './libLexActivator';
 
 const LicenseCallback = function (callback) {
     return FFI.Callback('void', [ref.types.int], callback)
@@ -70,6 +70,10 @@ const LexActivator = new FFI.Library(libraryPath, {
         ref.types.uint32,
     ]],
     GetLicenseUserName: [ref.types.int, [
+        charPtr,
+        ref.types.uint32,
+    ]],
+    GetLicenseType: [ref.types.int, [
         charPtr,
         ref.types.uint32,
     ]],
