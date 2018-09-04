@@ -1,5 +1,5 @@
 # lexactivator-nodejs
-LexActivator API wrapper for Node.js
+LexActivator - Node.js licensing library
 
 Refer to following for documentation:
 
