@@ -116,6 +116,12 @@ const LexActivator = new FFI.Library(libraryPath, {
     ]],
     ActivateTrial: [ref.types.int, [
     ]],
+    ActivateTrialOffline: [ref.types.int, [
+        stringType,
+    ]],
+    GenerateOfflineTrialActivationRequest: [ref.types.int, [
+        stringType,
+    ]],
     IsTrialGenuine: [ref.types.int, [
     ]],
     ActivateLocalTrial: [ref.types.int, [
