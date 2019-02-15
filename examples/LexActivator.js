@@ -48,6 +48,9 @@ const LexActivator = new FFI.Library(libraryPath, {
     SetNetworkProxy: [ref.types.int, [
         stringType,
     ]],
+    SetCryptlexHost: [ref.types.int, [
+        stringType,
+    ]],
     GetProductMetadata: [ref.types.int, [
         stringType,
         charPtr,
