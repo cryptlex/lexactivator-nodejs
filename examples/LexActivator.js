@@ -14,7 +14,8 @@ const stringType = process.platform == 'win32' ? refWchar.string : 'string';
 
 const PermissionFlags = {
     LA_USER: 1,
-    LA_SYSTEM: 2
+    LA_SYSTEM: 2,
+    LA_IN_MEMORY: 4
 };
 
 const LexActivator = new FFI.Library(libraryPath, {
