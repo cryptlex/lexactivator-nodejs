@@ -77,6 +77,15 @@ const LexActivator = new FFI.Library(libraryPath, {
         charPtr,
         ref.types.uint32,
     ]],
+    GetLicenseUserCompany: [ref.types.int, [
+        charPtr,
+        ref.types.uint32,
+    ]],
+    GetLicenseUserMetadata: [ref.types.int, [
+        stringType,
+        charPtr,
+        ref.types.uint32,
+    ]],
     GetLicenseType: [ref.types.int, [
         charPtr,
         ref.types.uint32,
@@ -85,6 +94,9 @@ const LexActivator = new FFI.Library(libraryPath, {
         stringType,
         charPtr,
         ref.types.uint32,
+    ]],
+    GetServerSyncGracePeriodExpiryDate: [ref.types.int, [
+        uint32Ptr,
     ]],
     GetTrialActivationMetadata: [ref.types.int, [
         stringType,
@@ -100,6 +112,12 @@ const LexActivator = new FFI.Library(libraryPath, {
     ]],
     GetLocalTrialExpiryDate: [ref.types.int, [
         uint32Ptr,
+    ]],
+    CheckForReleaseUpdate: [ref.types.int, [
+        stringType,
+        stringType,
+        stringType,
+        'pointer'
     ]],
     ActivateLicense: [ref.types.int, [
     ]],
@@ -192,6 +210,21 @@ const LexStatusCodes = {
         with. Ensure your date and time settings are correct.
     */
     LA_LOCAL_TRIAL_EXPIRED: 26,
+
+    /*
+        CODE: LA_RELEASE_UPDATE_AVAILABLE
+
+        MESSAGE: A new update is available for the product. This means a new release has
+        been published for the product.
+    */
+    LA_RELEASE_UPDATE_AVAILABLE: 30,
+
+    /*
+        CODE: LA_RELEASE_NO_UPDATE_AVAILABLE
+ 
+        MESSAGE: No new update is available for the product. The current version is latest.
+    */
+    LA_RELEASE_NO_UPDATE_AVAILABLE: 31,
 
     /*
         CODE: LA_E_FILE_PATH
@@ -407,6 +440,13 @@ const LexStatusCodes = {
         MESSAGE: The system time has been tampered (backdated).
     */
     LA_E_TIME_MODIFIED: 69,
+
+    /*
+        CODE: LA_E_RELEASE_VERSION_FORMAT
+
+        MESSAGE: Invalid version format.
+    */
+    LA_E_RELEASE_VERSION_FORMAT: 70,
 
     /*
         CODE: LA_E_VM
