@@ -8,6 +8,10 @@ const LicenseCallback = function (callback) {
     return FFI.Callback('void', [ref.types.int], callback)
 };
 
+const SoftwareReleaseUpdateCallback = function (callback) {
+    return FFI.Callback('void', [ref.types.int], callback)
+};
+
 const uint32Ptr = ref.refType(ref.types.uint32);
 const charPtr = process.platform == 'win32' ? ref.refType(refWchar.string) : ref.refType(ref.types.char);
 const stringType = process.platform == 'win32' ? refWchar.string : 'string';
@@ -492,4 +496,4 @@ const LexStatusCodes = {
     LA_E_CLIENT: 92
 };
 
-module.exports = { LexActivator, LicenseCallback, PermissionFlags, LexStatusCodes };
+module.exports = { LexActivator, LicenseCallback, SoftwareReleaseUpdateCallback, PermissionFlags, LexStatusCodes };

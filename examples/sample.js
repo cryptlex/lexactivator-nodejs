@@ -3,7 +3,7 @@ const ref = require('ref');
 // Refer to following link for LexActivator API docs:
 // https://github.com/cryptlex/lexactivator-c/blob/master/examples/LexActivator.h
 
-const { LexActivator, PermissionFlags, LexStatusCodes, LicenseCallback } = require('./LexActivator');
+const { LexActivator, PermissionFlags, LexStatusCodes, LicenseCallback, SoftwareReleaseUpdateCallback } = require('./LexActivator');
 
 function init() {
     let status;
@@ -71,7 +71,7 @@ function main() {
     init();
     let status;
     LexActivator.SetLicenseCallback(LicenseCallback(function(status){
-        console.log("License status", status);
+        console.log("License status:", status);
     }));
     status = LexActivator.IsLicenseGenuine();
     if (LexStatusCodes.LA_OK == status) {
@@ -88,8 +88,16 @@ function main() {
         } else {
             console.log("License user name: %s\n", buffer.toString());
         }
-
         console.log("License is genuinely activated!");
+
+        // console.log("Checking for software release update...");
+		// status = LexActivator.CheckForReleaseUpdate("windows", "1.0.0", "stable", SoftwareReleaseUpdateCallback(function(status){
+        //     console.log("Release status:", status);
+        // }));
+		// if (LA_OK != status)
+		// {
+		// 	console.log("Error checking for software release update:",status);
+		// }
     } else if (LexStatusCodes.LA_EXPIRED == status) {
         console.log("License is genuinely activated but has expired!");
     } else if (LexStatusCodes.LA_SUSPENDED == status) {
