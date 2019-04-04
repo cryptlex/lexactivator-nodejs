@@ -94,7 +94,7 @@ function main() {
 		// status = LexActivator.CheckForReleaseUpdate("windows", "1.0.0", "stable", SoftwareReleaseUpdateCallback(function(status){
         //     console.log("Release status:", status);
         // }));
-		// if (LA_OK != status)
+		// if (LexStatusCodes.LA_OK != status)
 		// {
 		// 	console.log("Error checking for software release update:",status);
 		// }
