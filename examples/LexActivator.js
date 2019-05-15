@@ -70,6 +70,11 @@ const LexActivator = new FFI.Library(libraryPath, {
         charPtr,
         ref.types.uint32,
     ]],
+    GetLicenseMeterAttribute: [ref.types.int, [
+        stringType,
+        uint32Ptr,
+        uint32Ptr
+    ]],
     GetLicenseKey: [ref.types.int, [
         charPtr,
         ref.types.uint32,
@@ -102,6 +107,10 @@ const LexActivator = new FFI.Library(libraryPath, {
         stringType,
         charPtr,
         ref.types.uint32,
+    ]],
+    GetActivationMeterAttributeUses: [ref.types.int, [
+        stringType,
+        uint32Ptr
     ]],
     GetServerSyncGracePeriodExpiryDate: [ref.types.int, [
         uint32Ptr,
@@ -161,6 +170,17 @@ const LexActivator = new FFI.Library(libraryPath, {
     ]],
     ExtendLocalTrial: [ref.types.int, [
         ref.types.uint32
+    ]],
+    IncrementActivationMeterAttributeUses: [ref.types.int, [
+        stringType,
+        ref.types.uint32
+    ]],
+    DecrementActivationMeterAttributeUses: [ref.types.int, [
+        stringType,
+        ref.types.uint32
+    ]],
+    ResetActivationMeterAttributeUses: [ref.types.int, [
+        stringType
     ]],
     Reset: [ref.types.int, [
     ]],
@@ -462,6 +482,20 @@ const LexStatusCodes = {
         MESSAGE: Incorrect email or password.
     */
     LA_E_AUTHENTICATION_FAILED: 71,
+
+    /*
+        CODE: LA_E_METER_ATTRIBUTE_NOT_FOUND
+
+        MESSAGE: The meter attribute does not exist.
+    */
+    LA_E_METER_ATTRIBUTE_NOT_FOUND: 72,
+
+    /*
+       CODE: LA_E_METER_ATTRIBUTE_USES_LIMIT_REACHED
+
+       MESSAGE: The meter attribute has reached it's usage limit.
+    */
+    LA_E_METER_ATTRIBUTE_USES_LIMIT_REACHED: 73,
 
     /*
         CODE: LA_E_VM
