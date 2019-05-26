@@ -1,4 +1,6 @@
-# lexactivator-nodejs (Deprecated) Please check out following new repo:
+# lexactivator-nodejs (Deprecated) 
+
+## Please check out following new repo:
 
 https://github.com/cryptlex/lexactivator-js
 
