@@ -77,7 +77,7 @@ function main() {
     if (LexStatusCodes.LA_OK == status) {
         const expiryDate = ref.alloc(ref.types.uint32);
         LexActivator.GetLicenseExpiryDate(expiryDate);
-        const daysLeft = (expiryDate.deref() - (new Date().getTime() / 1000)) / 86500;
+        const daysLeft = (expiryDate.deref() - (new Date().getTime() / 1000)) / 86400;
         console.log("Days left:", daysLeft);
 
         const buffer = new Buffer(256);
@@ -110,7 +110,7 @@ function main() {
         if (LexStatusCodes.LA_OK == trialStatus) {
             const trialExpiryDate = ref.alloc(ref.types.uint32);
             LexActivator.GetTrialExpiryDate(trialExpiryDate);
-            const daysLeft = (trialExpiryDate.deref() - (new Date().getTime() / 1000)) / 86500;
+            const daysLeft = (trialExpiryDate.deref() - (new Date().getTime() / 1000)) / 86400;
             console.log("Trial days left:", daysLeft);
         } else if (LexStatusCodes.LA_TRIAL_EXPIRED == trialStatus) {
             console.log("Trial has expired!");
